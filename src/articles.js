@@ -2,12 +2,19 @@ export const articles = [
   {
     id: 1,
     title: "I ♥ Javascript",
-    content: "This is the content of article 1",
+    content: {
+      headline: "I ♥ Javascript",
+      text: "This is the content of article 1",
+      image: {
+        src: "javascript.jpg",
+        alt: "I love Javascript",
+      },
+      code: "console.log('Hello World!');",
+    },
     image: {
       src: "javascript.jpg",
       alt: "I love Javascript",
     },
-    link: "#i-love-javascript",
     teaser: "This is the reason why I love Javascript!",
     date: "2021-01-01",
     author: "John Doe",
@@ -72,6 +79,7 @@ export const articles = [
       src: "nodejs.jpg",
       alt: "Picture with code",
     },
+    link: "article-details.html",
     teaser: "This is the reason why I love HTML!",
     date: "2021-01-03",
     author: "John Doe",
@@ -104,6 +112,7 @@ export const articles = [
       src: "remote.jpg",
       alt: "View from window to a river",
     },
+    link: "article-details.html",
     teaser: "This is the reason why I love React!",
     date: "2021-01-04",
     author: "Jane Doe",
