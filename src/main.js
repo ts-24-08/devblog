@@ -13,7 +13,7 @@ articles.forEach((article) => {
                 <p class="mt-4">${article.teaser}</p>
                 <ul class="flex gap-2 mt-4">
                 <!-- DRY Principle -->
-                  ${article.tags.map(tag => `<li><span class="px-2 py-1 rounded text-sm mr-2 bg-[${tag.bgColor}] text-[${tag.textColor}]">${tag.name}</span></li>`)}
+                  ${article.tags.map(tag => `<li><span class="px-2 py-1 rounded text-sm mr-2 bg-[${tag.bgColor}] text-[${tag.textColor}]">${tag.name}</span></li>`).join("")}
                   </ul>
               </div>
             </a>
