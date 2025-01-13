@@ -1,4 +1,7 @@
-import { articles } from "./articles.js";
+// import { articles } from "./articles.js";
+
+const response = await fetch(import.meta.env.API_URL);
+const articles = await response.json();
 
 const container = document.querySelector("#container");
 container.innerHTML = "";
