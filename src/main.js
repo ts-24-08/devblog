@@ -7,6 +7,7 @@ articles.forEach((article, index) => {
   const articleWrapper = document.createElement("div");
   articleWrapper.classList.add("border", "shadow-md");
   const articleHref = document.createElement("a");
+  articleHref.classList.add("h-full", "w-full");
   articleHref.href = `article-details.html?id=${article.id}`;
 
   const articleImage = document.createElement("img");
@@ -42,7 +43,7 @@ articles.forEach((article, index) => {
                 } - ${article.date}</span>
                 <h1 class="text-xl font-bold mt-4">${article.title}</h1>
                 <p class="mt-4">${article.teaser}</p>
-                <ul class="flex gap-2 mt-4">
+                <ul class="flex flex-wrap gap-2 mt-4">
                 <!-- DRY Principle -->
                   ${article.tags
                     .map(
