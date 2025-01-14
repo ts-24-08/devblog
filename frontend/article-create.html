@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./src/style.css">
   <title>Vite App</title>
-  <script defer type="module" src="./src/details.js"></script>
+  <script defer type="module" src="./src/create.js"></script>
 </head>
 
 <body class="dark:bg-slate-900">
@@ -28,15 +28,26 @@
     <h3 class="text-8xl text-center uppercase my-8 font-semibold dark:text-white">dev blog</h3>
     <hr>
     <main>
-      <h3>Neuen Artikel erstellen:</h3>
-      <form action="">
-        <label for="headline">Überschrift:</label>
-        <input type="text" id="headline" name="headline" required>
-        <label for="teaser">Teaser:</label>
-        <input type="text" id="teaser" name="teaser" required>
-        <label for="content">Inhalt:</label>
-        <textarea id="content" name="content" required></textarea>
-        <button type="submit">Artikel erstellen</button>
+      <div id="result" class="border p-4 my-8 text-white hidden">
+        <div class="relative">
+          <div id="close" class="top-2 right-2">x</div>
+          <p id="result-text" class="mt-4"></p>
+        </div>
+      </div>
+      <h3 class="text-3xl font-semibold mb-4 mt-6">Neuen Artikel erstellen:</h3>
+      <form action="#" class="flex flex-col gap-4" id="form">
+        <fieldset>
+          <legend class="flex flex-col gap-4">
+            <h4 class="text-xl font-semibold my-4">Artikel Details:</h4>
+            <label for="title" class="block">Überschrift:</label>
+            <input type="text" id="title" name="title" class="border p-2">
+            <label for="teaser">Teaser:</label>
+            <input type="text" id="teaser" name="teaser" required class="border p-2">
+            <label for="content">Inhalt:</label>
+            <textarea id="content" name="content" required class="border p-2"></textarea>
+          </legend>
+        </fieldset>
+        <button type="submit" class="bg-blue-500 text-white mx-4 my-2 rounded-md text-sm p-2">Artikel erstellen</button>
       </form>
     </main>
     <footer>

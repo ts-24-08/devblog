@@ -9,6 +9,10 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+// Middleware for Form Data
+app.use(express.urlencoded());
+app.use(express.json());
+
 
 let articles = [
   {
@@ -144,6 +148,26 @@ let articles = [
 ];
 app.get("/", (request, response) => {
   response.send("Nothing to see - go away!");
+});
+
+app.post("/articles", (request, response) => {
+  let message = "";
+  console.log(request.body);
+  const { title, content, teaser } = request.body;
+  // Save Data in Database
+  console.log(title, content, teaser);
+  if (!title || !content || !teaser) {
+    if (!title) {
+      message += "Title is missing. ";
+    } else if (!content) {
+      message += "Content is missing. ";
+    } else if (!teaser) {
+      message += "Teaser is missing. ";
+    }
+    response.status(400).send({ message });
+    return;
+  }
+  response.status(200).send({ "message": "Article added successfully" });
 });
 
 app.get("/articles", (request, response) => {

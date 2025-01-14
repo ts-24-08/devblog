@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: "index.html",
         details: "article-details.html",
+        create: "article-create.html",
       },
     },
   },
