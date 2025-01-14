@@ -22,6 +22,7 @@
           <li><a href="#">newsletter</a></li>
         </ul>
         <button>light / dark</button>
+        <a href="article-create.html" class="border px-4 py-2 bg-red-600 text-white rounded-md">Create Article</a>
       </nav>
     </header>
     <hr>
@@ -32,77 +33,77 @@
     <main>
       <div class="flex flex-col lg:grid lg:grid-rows-min lg:grid-cols-2 gap-4" id="container">
         <!-- 1. Article -->
-      <div class="border lg:row-span-2 shadow-md">
-        <a href="#">
-          <img class="object-cover w-full h-80" src="javascript.jpg" alt="Javascript Picture">
-          <div class="p-4">
-            <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
-            <h1 class="text-xl font-bold mt-4">I ♥ Javascript</h1>
-            <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
-              quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
-            <ul class="flex gap-2 mt-4">
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
-            </ul>
-          </div>
-        </a>
-      </div>
-      <!-- 2. Article -->
-      <div class="border">
-        <a href="#" class="md:flex">
-          <img class="object-cover w-full h-80 lg:h-40 lg:w-40" src="nodejs.jpg" alt="Javascript Picture">
-          <div class="p-4 overflow-hidden">
-            <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
-            <h1 class="text-xl font-bold mt-4">I ♥ Node.js</h1>
-            <p class="mt-4"> sit amet consectetur adipisicing elit.
-              Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
-              quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
-            <ul class="flex gap-2 mt-4">
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
-            </ul>
-          </div>
-        </a>
-      </div>
-      <!--3. Article  -->
-      <div class="border">
-        <a href="#" class="md:flex">
-          <img class="object-cover w-full h-80 lg:h-40 lg:w-40" src="love.jpg" alt="Javascript Picture">
-          <div class="p-4 overflow-hidden">
-            <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
-            <h1 class="text-xl font-bold mt-4">I ♥ Tailwind</h1>
-            <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
-              quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
-            <ul class="flex gap-2 mt-4">
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
-            </ul>
-          </div>
-        </a>
-      </div>
-      <!-- 4. Article -->
-      <div class="border lg:col-span-2 lg:w-full">
-        <a href="#">
-          <img class="object-cover w-full h-80" src="remote.jpg" alt="Javascript Picture">
-          <div class="p-4">
-            <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
-            <h1 class="text-xl font-bold mt-4">I ♥ to work remote</h1>
-            <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
-              quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
-            <ul class="flex gap-2 mt-4">
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
-              <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
-            </ul>
-          </div>
-        </a>
-      </div>
+        <div class="border lg:row-span-2 shadow-md">
+          <a href="#">
+            <img class="object-cover w-full h-80" src="javascript.jpg" alt="Javascript Picture">
+            <div class="p-4">
+              <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
+              <h1 class="text-xl font-bold mt-4">I ♥ Javascript</h1>
+              <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
+                quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
+              <ul class="flex gap-2 mt-4">
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
+              </ul>
+            </div>
+          </a>
+        </div>
+        <!-- 2. Article -->
+        <div class="border">
+          <a href="#" class="md:flex">
+            <img class="object-cover w-full h-80 lg:h-40 lg:w-40" src="nodejs.jpg" alt="Javascript Picture">
+            <div class="p-4 overflow-hidden">
+              <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
+              <h1 class="text-xl font-bold mt-4">I ♥ Node.js</h1>
+              <p class="mt-4"> sit amet consectetur adipisicing elit.
+                Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
+                quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
+              <ul class="flex gap-2 mt-4">
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
+              </ul>
+            </div>
+          </a>
+        </div>
+        <!--3. Article  -->
+        <div class="border">
+          <a href="#" class="md:flex">
+            <img class="object-cover w-full h-80 lg:h-40 lg:w-40" src="love.jpg" alt="Javascript Picture">
+            <div class="p-4 overflow-hidden">
+              <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
+              <h1 class="text-xl font-bold mt-4">I ♥ Tailwind</h1>
+              <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
+                quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
+              <ul class="flex gap-2 mt-4">
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
+              </ul>
+            </div>
+          </a>
+        </div>
+        <!-- 4. Article -->
+        <div class="border lg:col-span-2 lg:w-full">
+          <a href="#">
+            <img class="object-cover w-full h-80" src="remote.jpg" alt="Javascript Picture">
+            <div class="p-4">
+              <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
+              <h1 class="text-xl font-bold mt-4">I ♥ to work remote</h1>
+              <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
+                quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
+              <ul class="flex gap-2 mt-4">
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
+                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
+              </ul>
+            </div>
+          </a>
+        </div>
       </div>
       <div>
         <h5 class="text-2xl font-semibold mt-8 mb-5">all blog posts</h5>
@@ -126,7 +127,7 @@
         </div>
       </div>
       <!-- Pagination -->
-       <!-- 200 Artikel / 20 pro Seite / 10 Seiten  -->
+      <!-- 200 Artikel / 20 pro Seite / 10 Seiten  -->
       <div class="flex justify-center mt-8 gap-4">
         <button class="px-4 py-2 border rounded hover:bg-slate-100">prev</button>
         <button class="px-4 py-2 border rounded hover:bg-slate-100">1</button>

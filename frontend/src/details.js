@@ -1,10 +1,12 @@
-import { articles } from "./articles.js";
+// import { articles } from "./articles.js";
 
 let params = new URLSearchParams(document.location.search);
 console.log(params);
 let id = params.get("id");
-console.log(id);
-let article = articles.find((article) => article.id == id);
+
+const response = await fetch(import.meta.env.VITE_API_URL + "/"+ id);
+const article = await response.json();
+// let article = articles.find((article) => article.id == id);
 console.log(article);
 
 const header = document.querySelector("#headline");

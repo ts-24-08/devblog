@@ -14,15 +14,7 @@ let articles = [
   {
     id: 1,
     title: "I ♥ Javascript",
-    content: {
-      headline: "I ♥ Javascript",
-      text: "This is the content of article 1",
-      image: {
-        src: "javascript.jpg",
-        alt: "I love Javascript",
-      },
-      code: "console.log('Hello World!');",
-    },
+    content: "This is the content of article 1",
     image: {
       src: "javascript.jpg",
       alt: "I love Javascript",
