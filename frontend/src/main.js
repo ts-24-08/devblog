@@ -2,6 +2,22 @@
 console.log(import.meta.env);
 const response = await fetch(import.meta.env.VITE_API_URL);
 const articles = await response.json();
+console.log(articles);
+
+const colors = [
+  {
+    bgColor: "#F9F5FF",
+    textColor: "#6941C6",
+  },
+  {
+    bgColor: "#EEF4FF",
+    textColor: "#3538CD",
+  },
+  {
+    bgColor: "#FDF2FA",
+    textColor: "#C11574",
+  },
+];
 
 const container = document.querySelector("#container");
 container.innerHTML = "";
@@ -14,8 +30,8 @@ articles.forEach((article, index) => {
   articleHref.href = `article-details.html?id=${article.id}`;
 
   const articleImage = document.createElement("img");
-  articleImage.src = article.image.src;
-  articleImage.alt = article.image.alt;
+  articleImage.src = article.imagepath;
+  articleImage.alt = article.imagealt;
   articleImage.classList.add("object-cover", "w-full", "h-80");
 
   const contentContainer = document.createElement("div");
@@ -41,18 +57,20 @@ articles.forEach((article, index) => {
   }
 
   contentContainer.innerHTML = `
-                <span class="text-sm font-semibold text-[#6941C6]">${article.author
-    } - ${article.date}</span>
+                <span class="text-sm font-semibold text-[#6941C6]">${
+                  article.author
+                } - ${article.date}</span>
                 <h1 class="text-xl font-bold mt-4">${article.title}</h1>
                 <p class="mt-4">${article.teaser}</p>
                 <ul class="flex flex-wrap gap-2 mt-4">
                 <!-- DRY Principle -->
                   ${article.tags
-      .map(
-        (tag) =>
-          `<li><span class="px-2 py-1 rounded text-sm mr-2 bg-[${tag.bgColor}] text-[${tag.textColor}]">${tag.name}</span></li>`
-      )
-      .join("")}
+                    .split(",")
+                    .map(
+                      (tag, index) =>
+                        `<li><span class="px-2 py-1 rounded text-sm mr-2 bg-[${colors[index].bgColor}] text-[${colors[index].textColor}]">${tag}</span></li>`
+                    )
+                    .join("")}
                   </ul>`;
 
   articleHref.appendChild(articleImage);

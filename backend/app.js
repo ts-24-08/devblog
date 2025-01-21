@@ -1,8 +1,11 @@
 // CommonJS
 const express = require("express");
 const cors = require("cors");
+const database = require("better-sqlite3");
+const validator = require("./validator");
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const corsOptions = {
   origin: ["http://localhost:5173"],
@@ -10,183 +13,125 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 // Middleware for Form Data
-app.use(express.urlencoded());
+// app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Database Connection
+const db = new database("devblog.db", { verbose: console.log });
 
-let articles = [
-  {
-    id: 1,
-    title: "I ♥ Javascript",
-    content: "This is the content of article 1",
-    image: {
-      src: "javascript.jpg",
-      alt: "I love Javascript",
-    },
-    teaser: "This is the reason why I love Javascript!",
-    date: "2021-01-01",
-    author: "John Doe",
-    tags: [
-      {
-        id: 1,
-        name: "Design",
-        bgColor: "#F9F5FF",
-        textColor: "#6941C6",
-      },
-      {
-        id: 2,
-        name: "Research",
-        bgColor: "#EEF4FF",
-        textColor: "#3538CD",
-      },
-      {
-        id: 3,
-        name: "Presentation",
-        bgColor: "#FDF2FA",
-        textColor: "#C11574",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "CSS is Awesome",
-    content: "This is the content of article 2",
-    image: {
-      src: "love.jpg",
-      alt: "Picture with Love",
-    },
-    teaser: "This is the reason why I love CSS!",
-    date: "2021-01-02",
-    author: "Jane Doe",
-    tags: [
-      {
-        id: 1,
-        name: "Design",
-        bgColor: "#F9F5FF",
-        textColor: "#6941C6",
-      },
-      {
-        id: 2,
-        name: "Research",
-        bgColor: "#EEF4FF",
-        textColor: "#3538CD",
-      },
-      {
-        id: 3,
-        name: "Presentation",
-        bgColor: "#FDF2FA",
-        textColor: "#C11574",
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "HTML is Cool",
-    content: "This is the content of article 3",
-    image: {
-      src: "nodejs.jpg",
-      alt: "Picture with code",
-    },
-    link: "article-details.html",
-    teaser: "This is the reason why I love HTML!",
-    date: "2021-01-03",
-    author: "John Doe",
-    tags: [
-      {
-        id: 1,
-        name: "Design",
-        bgColor: "#F9F5FF",
-        textColor: "#6941C6",
-      },
-      {
-        id: 2,
-        name: "Research",
-        bgColor: "#EEF4FF",
-        textColor: "#3538CD",
-      },
-      {
-        id: 3,
-        name: "Presentation",
-        bgColor: "#FDF2FA",
-        textColor: "#C11574",
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "React is the Best",
-    content: "This is the content of article 4",
-    image: {
-      src: "remote.jpg",
-      alt: "View from window to a river",
-    },
-    link: "article-details.html",
-    teaser: "This is the reason why I love React!",
-    date: "2021-01-04",
-    author: "Jane Doe",
-    tags: [
-      {
-        id: 1,
-        name: "Design",
-        bgColor: "#F9F5FF",
-        textColor: "#6941C6",
-      },
-      {
-        id: 2,
-        name: "Research",
-        bgColor: "#EEF4FF",
-        textColor: "#3538CD",
-      },
-      {
-        id: 3,
-        name: "Presentation",
-        bgColor: "#FDF2FA",
-        textColor: "#C11574",
-      },
-    ],
-  },
-];
+// Create Table
+db.prepare(
+  `
+  CREATE TABLE IF NOT EXISTS articles (
+  id INTEGER PRIMARY KEY AUTOINCREMENT, 
+  title TEXT, 
+  content TEXT, 
+  teaser TEXT,
+  date TEXT,
+  author TEXT,
+  imagepath TEXT,
+  imagealt TEXT,
+  tags TEXT)
+  `
+).run();
+
 app.get("/", (request, response) => {
   response.send("Nothing to see - go away!");
 });
 
-app.post("/articles", (request, response) => {
-  let message = "";
-  console.log(request.body);
-  const { title, content, teaser } = request.body;
-  // Save Data in Database
-  console.log(title, content, teaser);
-  if (!title || !content || !teaser) {
-    if (!title) {
-      message += "Title is missing. ";
-    } else if (!content) {
-      message += "Content is missing. ";
-    } else if (!teaser) {
-      message += "Teaser is missing. ";
-    }
-    response.status(400).send({ message });
-    return;
-  }
-  response.status(200).send({ "message": "Article added successfully" });
-});
+// ARTICLES
 
 app.get("/articles", (request, response) => {
+  const articles = db.prepare("SELECT * FROM articles").all();
   response.json(articles);
 });
 
-app.get("/articles/:id", (request, response) => {
+app.delete("/articles/:id", (request, response) => {});
+
+app.post("/articles", (request, response) => {
+  let message = "";
+  console.log(request.body);
+
+  const { title, content, teaser, date, author, imagepath, imagealt, tags } =
+    request.body;
+
+  let validatorResult = validator(
+    title,
+    content,
+    teaser,
+    date,
+    author,
+    imagepath,
+    imagealt,
+    tags
+  );
+
+  if (validatorResult.error) {
+    response.status(400).send({ message: validatorResult.message });
+    return;
+  }
+
+  const stmt = db.prepare(
+    "INSERT INTO articles (title, content, teaser, date, author, imagepath, imagealt, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+  );
+  const insert = stmt.run(
+    title,
+    content,
+    teaser,
+    date,
+    author,
+    imagepath,
+    imagealt,
+    tags
+  );
+  console.log(insert);
+  response.status(200).send({ message: "Article added successfully" });
+});
+
+app.put("/articles/:id", (request, response) => {
   const id = parseInt(request.params.id);
-  if (!id) {
-    response.status(404).send("Article not found");
+  const { title, content, teaser, date, author, imagepath, imagealt, tags } =
+    request.body;
+  const articleExits = db
+    .prepare("SELECT * FROM articles WHERE id = ?")
+    .get(id);
+  console.log(articleExits);
+  // Early Return
+  if (!articleExits) {
+    response.status(404).send({ message: "Article not found" });
     return;
   }
-  const article = articles.find((article) => article.id === id);
-  if (!article) {
-    response.status(404).send("Article not found");
+
+  let validatorResult = validator(
+    title,
+    content,
+    teaser,
+    date,
+    author,
+    imagepath,
+    imagealt,
+    tags
+  );
+
+  if (validatorResult.error) {
+    response.status(400).send({ message: validatorResult.message });
     return;
   }
-  console.log("Requst Params ID", id);
-  response.json(article);
+  const stmt = db.prepare(
+    "UPDATE articles SET title = ?, content = ?, teaser = ?, date = ?, author = ?, imagepath = ?, imagealt = ?, tags = ? WHERE id = ?"
+  );
+  const update = stmt.run(
+    title,
+    content,
+    teaser,
+    date,
+    author,
+    imagepath,
+    imagealt,
+    tags,
+    id
+  );
+  response.send({ message: "Article updated successfully" });
 });
 
 app.listen(port, () => {
