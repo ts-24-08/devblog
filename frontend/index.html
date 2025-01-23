@@ -1,159 +1,335 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>Vite App</title>
+    <script defer type="module" src="./src/main.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./src/style.css">
-  <title>Vite App</title>
-  <script defer type="module" src="./src/main.js"></script>
-</head>
-
-<body class="dark:bg-slate-900">
-  <div class="container mx-auto p-4">
-    <header class="flex justify-between items-center py-4">
-      <span>Your name</span>
-      <nav class="flex gap-4">
-        <ul class="flex gap-4">
-          <li><a href="#">blog</a></li>
-          <li><a href="#">projects</a></li>
-          <li><a href="#">about</a></li>
-          <li><a href="#">newsletter</a></li>
-        </ul>
-        <button>light / dark</button>
-        <a href="article-create.html" class="border px-4 py-2 bg-red-600 text-white rounded-md">Create Article</a>
-      </nav>
-    </header>
-    <hr>
-    <h3 class="text-8xl text-center uppercase my-8 font-semibold dark:text-white">dev blog</h3>
-    <hr>
-    <h5 class="text-2xl font-semibold mt-8 mb-5">recent blog posts</h5>
-
-    <main>
-      <div class="flex flex-col lg:grid lg:grid-rows-min lg:grid-cols-2 gap-4" id="container">
-        <!-- 1. Article -->
-        <div class="border lg:row-span-2 shadow-md">
-          <a href="#">
-            <img class="object-cover w-full h-80" src="javascript.jpg" alt="Javascript Picture">
-            <div class="p-4">
-              <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
-              <h1 class="text-xl font-bold mt-4">I ♥ Javascript</h1>
-              <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
-                quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
-              <ul class="flex gap-2 mt-4">
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
-              </ul>
-            </div>
-          </a>
-        </div>
-        <!-- 2. Article -->
-        <div class="border">
-          <a href="#" class="md:flex">
-            <img class="object-cover w-full h-80 lg:h-40 lg:w-40" src="nodejs.jpg" alt="Javascript Picture">
-            <div class="p-4 overflow-hidden">
-              <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
-              <h1 class="text-xl font-bold mt-4">I ♥ Node.js</h1>
-              <p class="mt-4"> sit amet consectetur adipisicing elit.
-                Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
-                quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
-              <ul class="flex gap-2 mt-4">
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
-              </ul>
-            </div>
-          </a>
-        </div>
-        <!--3. Article  -->
-        <div class="border">
-          <a href="#" class="md:flex">
-            <img class="object-cover w-full h-80 lg:h-40 lg:w-40" src="love.jpg" alt="Javascript Picture">
-            <div class="p-4 overflow-hidden">
-              <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
-              <h1 class="text-xl font-bold mt-4">I ♥ Tailwind</h1>
-              <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
-                quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
-              <ul class="flex gap-2 mt-4">
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
-              </ul>
-            </div>
-          </a>
-        </div>
-        <!-- 4. Article -->
-        <div class="border lg:col-span-2 lg:w-full">
-          <a href="#">
-            <img class="object-cover w-full h-80" src="remote.jpg" alt="Javascript Picture">
-            <div class="p-4">
-              <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
-              <h1 class="text-xl font-bold mt-4">I ♥ to work remote</h1>
-              <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
-                quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
-              <ul class="flex gap-2 mt-4">
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
-              </ul>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div>
-        <h5 class="text-2xl font-semibold mt-8 mb-5">all blog posts</h5>
-        <!-- 5. Article -->
-        <div class="border">
-          <a href="#">
-            <img class="object-cover w-full h-80" src="javascript.jpg" alt="Javascript Picture">
-            <div class="p-4">
-              <span class="text-sm font-semibold text-[#6941C6]">Jane Doe - 09.01.2025</span>
-              <h1 class="text-xl font-bold mt-4">I ♥ Javascript</h1>
-              <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eaque, numquam accusantium non tempora maxime natus. A voluptatibus facilis blanditiis, ipsum laboriosam
-                quis mollitia. Expedita et quidem maxime hic, modi eligendi.</p>
-              <ul class="flex gap-2 mt-4">
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]">Design</span></li>
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]">Research</span></li>
-                <li><span class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]">Presentation</span></li>
-              </ul>
-            </div>
-          </a>
-        </div>
-      </div>
-      <!-- Pagination -->
-      <!-- 200 Artikel / 20 pro Seite / 10 Seiten  -->
-      <div class="flex justify-center mt-8 gap-4">
-        <button class="px-4 py-2 border rounded hover:bg-slate-100">prev</button>
-        <button class="px-4 py-2 border rounded hover:bg-slate-100">1</button>
-        <button class="px-4 py-2 border rounded hover:bg-slate-100">2</button>
-        <button class="px-4 py-2 border rounded hover:bg-slate-100">4</button>
-        <button class="px-4 py-2 border rounded hover:bg-slate-100">5</button>
-        <button class="px-4 py-2 border rounded hover:bg-slate-100">...</button>
-        <button class="px-4 py-2 border rounded hover:bg-slate-100">next</button>
-
-      </div>
-    </main>
-    <footer>
-      <hr class="my-8">
-      <div class="flex justify-between items-center">
-        <span>&copy; 2025 - Dev Blog</span>
-        <nav class="flex gap-4">
+  <body class="dark:bg-slate-900">
+    <div class="container mx-auto p-4">
+      <header class="flex justify-between align-middle py-4">
+        <span>Your name</span>
+        <nav class="flex gap-4 items-center">
           <ul class="flex gap-4">
             <li><a href="#">blog</a></li>
             <li><a href="#">projects</a></li>
             <li><a href="#">about</a></li>
             <li><a href="#">newsletter</a></li>
           </ul>
+          <div
+            class="px-2 py-1 border bg-white rounded-md cursor-pointer hover:bg-gray-100"
+          >
+            <div class="size-8 flex justify-center items-center dark:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                />
+              </svg>
+            </div>
+            <div
+              class="size-8 hidden flex justify-center items-center dark:block"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+                />
+              </svg>
+            </div>
+          </div>
+          <a
+            href="article-create.html"
+            class="border px-4 py-2 bg-red-600 text-white rounded-md"
+            >Create Article</a
+          >
+          <a
+            href="login.html"
+            class="border px-4 py-2 bg-green-600 text-white rounded-md"
+            >Login</a
+          >
         </nav>
-      </div>
-    </footer>
-  </div>
-</body>
+      </header>
+      <hr />
+      <h3
+        class="text-8xl text-center uppercase my-8 font-semibold dark:text-white"
+      >
+        dev blog
+      </h3>
+      <hr />
+      <h5 class="text-2xl font-semibold mt-8 mb-5">recent blog posts</h5>
 
+      <main>
+        <div
+          class="flex flex-col lg:grid lg:grid-rows-min lg:grid-cols-2 gap-4"
+          id="container"
+        >
+          <!-- 1. Article -->
+          <div class="border lg:row-span-2 shadow-md">
+            <a href="#">
+              <img
+                class="object-cover w-full h-80"
+                src="javascript.jpg"
+                alt="Javascript Picture"
+              />
+              <div class="p-4">
+                <span class="text-sm font-semibold text-[#6941C6]"
+                  >Jane Doe - 09.01.2025</span
+                >
+                <h1 class="text-xl font-bold mt-4">I ♥ Javascript</h1>
+                <p class="mt-4">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eaque, numquam accusantium non tempora maxime natus. A
+                  voluptatibus facilis blanditiis, ipsum laboriosam quis
+                  mollitia. Expedita et quidem maxime hic, modi eligendi.
+                </p>
+                <ul class="flex gap-2 mt-4">
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]"
+                      >Design</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]"
+                      >Research</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]"
+                      >Presentation</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <!-- 2. Article -->
+          <div class="border">
+            <a href="#" class="md:flex">
+              <img
+                class="object-cover w-full h-80 lg:h-40 lg:w-40"
+                src="nodejs.jpg"
+                alt="Javascript Picture"
+              />
+              <div class="p-4 overflow-hidden">
+                <span class="text-sm font-semibold text-[#6941C6]"
+                  >Jane Doe - 09.01.2025</span
+                >
+                <h1 class="text-xl font-bold mt-4">I ♥ Node.js</h1>
+                <p class="mt-4">
+                  sit amet consectetur adipisicing elit. Eaque, numquam
+                  accusantium non tempora maxime natus. A voluptatibus facilis
+                  blanditiis, ipsum laboriosam quis mollitia. Expedita et quidem
+                  maxime hic, modi eligendi.
+                </p>
+                <ul class="flex gap-2 mt-4">
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]"
+                      >Design</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]"
+                      >Research</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]"
+                      >Presentation</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <!--3. Article  -->
+          <div class="border">
+            <a href="#" class="md:flex">
+              <img
+                class="object-cover w-full h-80 lg:h-40 lg:w-40"
+                src="love.jpg"
+                alt="Javascript Picture"
+              />
+              <div class="p-4 overflow-hidden">
+                <span class="text-sm font-semibold text-[#6941C6]"
+                  >Jane Doe - 09.01.2025</span
+                >
+                <h1 class="text-xl font-bold mt-4">I ♥ Tailwind</h1>
+                <p class="mt-4">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eaque, numquam accusantium non tempora maxime natus. A
+                  voluptatibus facilis blanditiis, ipsum laboriosam quis
+                  mollitia. Expedita et quidem maxime hic, modi eligendi.
+                </p>
+                <ul class="flex gap-2 mt-4">
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]"
+                      >Design</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]"
+                      >Research</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]"
+                      >Presentation</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <!-- 4. Article -->
+          <div class="border lg:col-span-2 lg:w-full">
+            <a href="#">
+              <img
+                class="object-cover w-full h-80"
+                src="remote.jpg"
+                alt="Javascript Picture"
+              />
+              <div class="p-4">
+                <span class="text-sm font-semibold text-[#6941C6]"
+                  >Jane Doe - 09.01.2025</span
+                >
+                <h1 class="text-xl font-bold mt-4">I ♥ to work remote</h1>
+                <p class="mt-4">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eaque, numquam accusantium non tempora maxime natus. A
+                  voluptatibus facilis blanditiis, ipsum laboriosam quis
+                  mollitia. Expedita et quidem maxime hic, modi eligendi.
+                </p>
+                <ul class="flex gap-2 mt-4">
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]"
+                      >Design</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]"
+                      >Research</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]"
+                      >Presentation</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-2xl font-semibold mt-8 mb-5">all blog posts</h5>
+          <!-- 5. Article -->
+          <div class="border">
+            <a href="#">
+              <img
+                class="object-cover w-full h-80"
+                src="javascript.jpg"
+                alt="Javascript Picture"
+              />
+              <div class="p-4">
+                <span class="text-sm font-semibold text-[#6941C6]"
+                  >Jane Doe - 09.01.2025</span
+                >
+                <h1 class="text-xl font-bold mt-4">I ♥ Javascript</h1>
+                <p class="mt-4">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eaque, numquam accusantium non tempora maxime natus. A
+                  voluptatibus facilis blanditiis, ipsum laboriosam quis
+                  mollitia. Expedita et quidem maxime hic, modi eligendi.
+                </p>
+                <ul class="flex gap-2 mt-4">
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#F9F5FF] text-[#6941C6]"
+                      >Design</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#EEF4FF] text-[#3538CD]"
+                      >Research</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="px-2 py-1 rounded text-sm mr-2 bg-[#FDF2FA] text-[#C11574]"
+                      >Presentation</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <!-- 200 Artikel / 20 pro Seite / 10 Seiten  -->
+        <div class="flex justify-center mt-8 gap-4">
+          <button class="px-4 py-2 border rounded hover:bg-slate-100">
+            prev
+          </button>
+          <button class="px-4 py-2 border rounded hover:bg-slate-100">1</button>
+          <button class="px-4 py-2 border rounded hover:bg-slate-100">2</button>
+          <button class="px-4 py-2 border rounded hover:bg-slate-100">4</button>
+          <button class="px-4 py-2 border rounded hover:bg-slate-100">5</button>
+          <button class="px-4 py-2 border rounded hover:bg-slate-100">
+            ...
+          </button>
+          <button class="px-4 py-2 border rounded hover:bg-slate-100">
+            next
+          </button>
+        </div>
+      </main>
+      <footer>
+        <hr class="my-8" />
+        <div class="flex justify-between items-center">
+          <span>&copy; 2025 - Dev Blog</span>
+          <nav class="flex gap-4">
+            <ul class="flex gap-4">
+              <li><a href="#">blog</a></li>
+              <li><a href="#">projects</a></li>
+              <li><a href="#">about</a></li>
+              <li><a href="#">newsletter</a></li>
+            </ul>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
